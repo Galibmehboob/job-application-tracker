@@ -62,3 +62,37 @@ function toggle(id) {
     calculateCount();
 }
 
+//Handle job card clicks 
+mainContainer.addEventListener('click', function (event) {
+
+    // Apply Interview / Rejected
+    if (event.target.classList.contains('btn-success') || event.target.classList.contains('btn-error')) {
+        const parentCard = event.target.closest('#allJobs > div, #filterSection > div');
+        if (!parentCard) return;
+
+        const jobName = parentCard.querySelector('.jobName').innerText;
+        const paraTitle = parentCard.querySelector('.paraTitle').innerText;
+        const salary = parentCard.querySelector('.salary').innerText;
+        const subTitle = parentCard.querySelector('.sub-title').innerText;
+
+        const appliedStatus = event.target.classList.contains('btn-success') ? 'Interview' : 'Rejected';
+        const cardInfo = {
+            jobName,
+            paraTitle,
+            salary,
+            applied: appliedStatus,
+            subTitle
+        };
+
+        //  applied status
+        const appliedEl = parentCard.querySelector('.applied');
+        appliedEl.innerText = appliedStatus;
+        if (appliedStatus === 'Interview') {
+            appliedEl.classList.add('text-green-700', 'bg-green-200');
+            appliedEl.classList.remove('text-gray-800', 'bg-gray-200', 'text-red-700', 'bg-red-200');
+        } else {
+            appliedEl.classList.add('text-red-700', 'bg-red-200');
+            appliedEl.classList.remove('text-gray-800', 'bg-gray-200', 'text-green-700', 'bg-green-200');
+        }
+    }
+})
