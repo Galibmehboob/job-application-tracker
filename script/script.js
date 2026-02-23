@@ -104,8 +104,8 @@ mainContainer.addEventListener('click', function (event) {
             rejectedlist.push(cardInfo);
             interviewlist = interviewlist.filter(i => i.jobName !== jobName);
         }
-        toggle(currentStatus);
         calculateCount();
+        toggle(currentStatus);
 
         // If current filter active, render
         if ((currentStatus === 'interviewBtn' && appliedStatus === 'Interview') ||
@@ -171,7 +171,7 @@ function renderListOrEmpty(list) {
         <p class="paraTitle text-gray-500 text-[15px]">${item.paraTitle}</p>
     </div>
     <p class="salary text-gray-500 font-semibold text-sm">${item.salary}</p>
-    <p class="applied text-[14px] w-24 text-center p-2 ${item.applied === 'Interview' ? 'text-green-700 bg-green-200' : 'text-red-700 bg-red-200'}">${item.applied}</p>
+    <p class="applied  rounded-md text-[14px] w-28 text-center p-2 ${item.applied === 'Interview' ? 'text-green-700 bg-green-200' : 'text-red-700 bg-red-200'}">${item.applied}</p>
     <p class="sub-title text-gray-600 text-[15px]">${item.subTitle}</p>
     <div>
         <button class="btn btn-outline btn-success font-bold">interview</button>
