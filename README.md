@@ -19,3 +19,4 @@
 --> recently i just learn that preventDefault() is stoping the browser autometic work, 
 and stopPropagation() used for stop children going up to the parents.
   
+<b>Live Demo</b> — <a href="https://job-hunting-tracker.netlify.app/">Job Application Tracker</a> <br/><br/>
